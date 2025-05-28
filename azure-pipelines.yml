@@ -1,13 +1,15 @@
 trigger:
-master
+- master
 
 pool:
   name: Default
 
 steps:
-script: echo My Gradle Application
-  displayName: 'Run a one-line script'
-script: gradle build
-  displayName: 'Building the gradle application'
-script: gradle run
-  displayName: 'Running gradle application'
+- script: echo "Running Azure Pipeline for Gradle project"
+  displayName: 'Step 1: Start pipeline'
+
+- script: ./gradlew build
+  displayName: 'Step 2: Build with Gradle'
+
+- script: java -jar build/libs/mygradle2-1.0-SNAPSHOT.jar
+  displayName: 'Step 3: Run the jar file'

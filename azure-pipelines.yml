@@ -2,14 +2,14 @@ trigger:
 - master
 
 pool:
-  name: Default
+  name: Default  # for self-hosted agent
 
 steps:
-- script: echo "Running Azure Pipeline for Gradle project"
-  displayName: 'Step 1: Start pipeline'
+- script: echo "Azure Pipeline for Gradle project without JAR"
+  displayName: 'Start Message'
 
 - script: ./gradlew build
-  displayName: 'Step 2: Build with Gradle'
+  displayName: 'Build the Project with Gradle'
 
-- script: java -jar build/libs/mygradle2-1.0-SNAPSHOT.jar
-  displayName: 'Step 3: Run the jar file'
+- script: ./gradlew run
+  displayName: 'Run the Application'

@@ -8,8 +8,8 @@ steps:
 - script: echo "Azure Pipeline for Gradle project without JAR"
   displayName: 'Start Message'
 
-- script: ./gradlew build
+- script: gradle build
   displayName: 'Build the Project with Gradle'
 
-- script: ./gradlew run
+- script: gradle run
   displayName: 'Run the Application'
